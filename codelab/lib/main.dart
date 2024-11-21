@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Fleurish Onboarding',
+      title: 'Fleurish',
       routes: {
         '/': (context) => const OnboardingPage(),
         '/login': (context) => const LoginPage(),

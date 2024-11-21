@@ -26,7 +26,7 @@ class DetailPage extends StatelessWidget {
           },
         ),
         title: const Text(
-          "Details",
+          "Bouquet details",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
