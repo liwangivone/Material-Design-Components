@@ -12,3 +12,4 @@ import 'package:lottie/lottie.dart';
 
 part 'onboarding_page.dart';
 part 'login_page.dart';
+part 'homepage.dart';

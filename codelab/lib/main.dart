@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const OnboardingPage(),
         '/login': (context) => const LoginPage(),
+        '/home': (context) => const HomePage(),
+        '/detail': (context) => const DetailPage()
       },
       initialRoute: '/', // Halaman awal adalah onboarding
       );
