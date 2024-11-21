@@ -61,7 +61,7 @@ class DetailPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.redAccent,
+                    backgroundColor: Color(0xFFFF8787),
                     shape: const StadiumBorder(),
                   ),
                   child: const Text("Description"),
@@ -97,7 +97,7 @@ class DetailPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: Color(0xFFBCE29E),
                     shape: const StadiumBorder(),
                   ),
                   child: const Text("Buy now"),

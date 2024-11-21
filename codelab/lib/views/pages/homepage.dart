@@ -95,7 +95,7 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Text(
-              "Categories",
+              "Artificial bouquets",
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
