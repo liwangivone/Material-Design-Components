@@ -5,31 +5,71 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Daftar data bouquet
-    final List<String> bouquetImages = [
-      'assets/bouquet1.jpg',
-      'assets/bouquet2.jpg',
-      'assets/bouquet3.jpg',
-      'assets/bouquet4.jpg',
-      'assets/bouquet5.jpg',
-      'assets/bouquet6.jpg',
-      'assets/bouquet7.jpg',
-      'assets/bouquet8.jpg',
+    // Data bouquet
+    final List<Map<String, String>> bouquetData = [
+      {
+        'image': 'assets/bouquet1.jpg',
+        'title': 'Blush blossom bouquet',
+        'description':
+            'A delicate bouquet of pink blooms, perfect for celebrating love and life’s sweetest moments.',
+      },
+      {
+        'image': 'assets/bouquet2.jpg',
+        'title': 'Pastel charm bouquet',
+        'description':
+            'A beautiful mix of pastel flowers to brighten anyone’s day with its soft, enchanting charm.',
+      },
+      {
+        'image': 'assets/bouquet3.jpg',
+        'title': 'Golden sunrise bouquet',
+        'description':
+            'Bursting with warm colors, this bouquet radiates the beauty of a golden sunrise.',
+      },
+      {
+        'image': 'assets/bouquet4.jpg',
+        'title': 'Lavender delight bouquet',
+        'description':
+            'A serene arrangement of lavender blooms, perfect for creating a calming ambiance.',
+      },
+      {
+        'image': 'assets/bouquet5.jpg',
+        'title': 'Rosy romance bouquet',
+        'description':
+            'The ultimate bouquet for romance, featuring vibrant red roses to express deep love.',
+      },
+      {
+        'image': 'assets/bouquet6.jpg',
+        'title': 'Spring garden bouquet',
+        'description':
+            'A lively collection of fresh, colorful flowers inspired by the beauty of spring.',
+      },
+      {
+        'image': 'assets/bouquet7.jpg',
+        'title': 'Elegant white bouquet',
+        'description':
+            'A timeless bouquet of white flowers, embodying elegance and sophistication.',
+      },
+      {
+        'image': 'assets/bouquet8.jpg',
+        'title': 'Vibrant sunset bouquet',
+        'description':
+            'A bold mix of orange and pink blooms, reminiscent of a breathtaking sunset.',
+      },
     ];
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F8D0), // Warna latar belakang
+      backgroundColor: const Color(0xFFF4F8D0),
       appBar: AppBar(
         backgroundColor: const Color(0xFFF4F8D0),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.menu, color: Colors.black),
-          onPressed: () {}, // Tambahkan aksi jika diperlukan
+          onPressed: () {},
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.account_circle, color: Colors.black),
-            onPressed: () {}, // Tambahkan aksi jika diperlukan
+            onPressed: () {},
           ),
         ],
       ),
@@ -44,7 +84,6 @@ class HomePage extends StatelessWidget {
                 filled: true,
                 fillColor: Colors.white,
                 hintText: 'Search',
-                hintStyle: const TextStyle(color: Colors.grey),
                 prefixIcon: const Icon(Icons.search, color: Colors.black),
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -55,39 +94,51 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-
-            // Judul kategori
             Text(
               "Categories",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
             ),
             const SizedBox(height: 16),
-
-            // GridView untuk menampilkan bouquet
+            // GridView untuk item bouquet
             Expanded(
               child: GridView.builder(
-                itemCount: bouquetImages.length,
+                itemCount: bouquetData.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // Jumlah item per baris
-                  crossAxisSpacing: 16, // Jarak horizontal antar item
-                  mainAxisSpacing: 16, // Jarak vertikal antar item
-                  childAspectRatio: 0.8, // Proporsi lebar:tinggi untuk item
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  childAspectRatio: 0.8,
                 ),
                 itemBuilder: (context, index) {
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 2,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        bouquetImages[index],
-                        fit: BoxFit.cover,
+                  final bouquet = bouquetData[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                            image: bouquet['image']!,
+                            title: bouquet['title']!,
+                            description: bouquet['description']!,
+                          ),
+                        ),
+                      );
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 2,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          bouquet['image']!,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   );
@@ -104,7 +155,7 @@ class HomePage extends StatelessWidget {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Profile',
+            label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
