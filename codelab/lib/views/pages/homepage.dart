@@ -62,9 +62,13 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFFF4F8D0),
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.menu, color: Colors.black),
-          onPressed: () {},
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu, color: Colors.black),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          ),
         ),
         actions: [
           IconButton(
@@ -74,6 +78,67 @@ class HomePage extends StatelessWidget {
             },
           ),
         ],
+      ),
+      drawer: Drawer(
+        backgroundColor: const Color(0xFFF4F8D0),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: const BoxDecoration(
+                color: Color(0xFFFF8787),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.white,
+                    child: Icon(Icons.person, size: 40, color: Colors.black),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Welcome, Ivone!',
+                    style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home, color: Colors.black),
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/home');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.shopping_cart, color: Colors.black),
+              title: const Text('Cart'),
+              onTap: () {
+                // Tambahkan logika navigasi ke halaman Cart
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.person, color: Colors.black),
+              title: const Text('Profile'),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/profile');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout, color: Colors.black),
+              title: const Text('Log Out'),
+              onTap: () {
+                // Tambahkan logika log out (contoh: navigasi ke halaman login)
+                Navigator.pushReplacementNamed(context, '/login');
+              },
+            ),
+          ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

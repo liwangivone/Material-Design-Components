@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         '/profile': (context) => const ProfilePage(),
       },
-      initialRoute: '/', // Halaman awal adalah onboarding
+      initialRoute: '/home', // Halaman awal adalah onboarding
       );
   }
 }
