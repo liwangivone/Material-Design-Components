@@ -22,12 +22,10 @@ class MyApp extends StatelessWidget {
             image: 'assets/bouquet1.jpg',
             title: 'blush bloom bouquet',
             description: 'A delicate bouquet of pink blooms, perfect for celebrating love and life’s sweetest moments',
-        )
+        ),
+        '/profile': (context) => const ProfilePage(),
       },
       initialRoute: '/', // Halaman awal adalah onboarding
       );
-    
-    
   }
-
 }

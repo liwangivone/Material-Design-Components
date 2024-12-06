@@ -5,7 +5,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Data bouquet
+    // Data bouquet lengkap
     final List<Map<String, String>> bouquetData = [
       {
         'image': 'assets/bouquet1.jpg',
@@ -69,7 +69,9 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.account_circle, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/profile');
+            },
           ),
         ],
       ),
@@ -133,12 +135,30 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       elevation: 2,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          bouquet['image']!,
-                          fit: BoxFit.cover,
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(12)),
+                            child: Image.asset(
+                              bouquet['image']!,
+                              fit: BoxFit.cover,
+                              height: 120,
+                              width: double.infinity,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              bouquet['title']!,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   );
@@ -152,6 +172,16 @@ class HomePage extends StatelessWidget {
         backgroundColor: const Color(0xFFF4F8D0),
         selectedItemColor: Colors.redAccent,
         unselectedItemColor: Colors.grey,
+        currentIndex: 0, // Menandai halaman ini sebagai aktif
+        onTap: (index) {
+          if (index == 0) {
+            // Halaman Home (sudah aktif)
+          } else if (index == 1) {
+            // Halaman Cart (tambahkan logika di sini jika ada)
+          } else if (index == 2) {
+            Navigator.pushReplacementNamed(context, '/profile');
+          }
+        },
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

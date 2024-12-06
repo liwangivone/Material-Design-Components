@@ -6,7 +6,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F8D0), // Warna latar belakang
+      backgroundColor: const Color(0xFFE5EBB2), // Warna latar belakang
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Column(
